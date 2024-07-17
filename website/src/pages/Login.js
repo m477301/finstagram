@@ -18,7 +18,7 @@ function Login() {
       }
     )
 
-    alert(response);
+    console.log(response.data);
   }
  
   return (
