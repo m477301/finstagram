@@ -1,8 +1,8 @@
 import React  from 'react'
 import axios from "axios";
-import "../styles/Login.css";
+import "../../styles/SignUp.css";
 
-function Login() {
+function SignUp(props) {
 
   async function onSignUp(e) {
 
@@ -22,12 +22,17 @@ function Login() {
   }
  
   return (
-    <form className="Login" onSubmit={onSignUp}>
+    <form className="Entry" onSubmit={onSignUp}>
+      <h1 style={{color: "white"}}>SIGN UP</h1>
       <input type="text" />
       <input type="password" />
       <button type="submit">Sign Up</button>
+      <button 
+        type="button"
+        onClick={() => props.changeToLogin()}
+      >Log In</button>
     </form>
   )
 }
 
-export default Login
+export default SignUp
