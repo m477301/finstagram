@@ -8,6 +8,9 @@ const Validation = {
     },
     isValidEmail(input) {
         return input.match(emailRegex)
+    },
+    isValidUsername(input) {
+        return true;
     }
 
 }

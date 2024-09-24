@@ -1,12 +1,17 @@
 import React  from 'react'
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
+
 import "../../styles/SignUp.css";
 
 import Validation from "../../services/Validation";
 
 function Login(props) {
 
+  const navigate = useNavigate();
+
   async function onLogin(e) {
+
     e.preventDefault();
 
     console.log("E", e.target[0].value, e.target[1].value);
@@ -15,16 +20,19 @@ function Login(props) {
       console.log("EMAIL", e.target[0].value)
     }
 
-    axios.post("http://localhost:5555/users/login",
+    let response = await axios.post("http://localhost:5555/users/login",
       {
         ...(Validation.isEmail(e.target[0].value) ? {email: e.target[0].value} : {username: e.target[0].value}),
-        password: e.targer[1].value
+        password: e.target[1].value
       }
     )
 
+    if(response?.data?.error) {
+      console.log("Error", response.data.error);
+    } else if(response?.data?.login === true) {
+      navigate("/home");
+    }
 
-
-    // axios.post(())
   }
  
   return (
