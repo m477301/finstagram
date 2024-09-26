@@ -1,8 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
+
+import { AuthContext } from '../services/AuthContext'
 
 function Home() {
+
+  const {login} = useContext(AuthContext);
+
   return (
-    <div>Home</div>
+    <div style={{ color: "white"}}>
+      Home
+      { login ? " Logged In" : "Logged Out"}
+    </div>
   )
 }
 
