@@ -5,6 +5,7 @@ import {
   Navigate
 } from "react-router-dom";
 
+import axios from "axios"
 import {useState, useEffect} from "react";
 
 import { AuthContext } from "./services/AuthContext";
@@ -21,10 +22,31 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Login", localStorage.getItem("login"))
-    setLogin(localStorage.getItem("login"));
-    setLoading(false);
+    if(localStorage.getItem("AuthToken")) {
+      checkAuth();
+    } else {
+      setLoading(false);
+    }
   }, [])
+
+  async function checkAuth() {
+    let response = await axios.get("http://localhost:5555/users/auth",
+      {
+        headers: {
+          authToken: localStorage.getItem("AuthToken")
+        }
+      }
+    )    
+    
+    if(response?.data?.error) {
+      console.log(response.data.error);
+    } else if(response?.data?.user){
+      setLogin(response?.data?.user)
+    }
+
+    setLoading(false);
+    
+  }
 
   if(loading) {
     return <></>

@@ -9,7 +9,7 @@ function Entry() {
     if(entryState)
         return <Login 
             changeToSignUp={() => setEntryState(false)}
-        />
+             />
 
     return (
         <SignUp 
