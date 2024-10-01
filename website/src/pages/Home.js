@@ -3,6 +3,9 @@ import React, {useContext} from 'react'
 import { AuthContext } from '../services/AuthContext'
 import { useNavigate } from 'react-router-dom';
 
+import CreatePostForm from './components/CreatePostForm';
+import "../styles/Home.css"
+
 function Home() {
 
   const navigate = useNavigate()
@@ -15,9 +18,9 @@ function Home() {
   }
 
   return (
-    <div style={{ color: "white"}}>
+    <div className='HomePage'>
       Home
-      { login ? " Logged In" : "Logged Out"}
+      <CreatePostForm />
       <button onClick={onLogout}>
         Logout
       </button>

@@ -1,0 +1,16 @@
+.Form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+    width: 50vw;
+}
+
+.TitleInput {
+    width: 50%;
+}
+
+.DescriptionArea {
+    width: 50%;
+}

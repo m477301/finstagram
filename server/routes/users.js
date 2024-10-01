@@ -70,6 +70,7 @@ router.post("/login", async (req, res) => {
         const authToken = sign(
         {
             email: user.email,
+            id: user.id,
             status: true,
         }
         , process.env.AUTH_SECRET)
@@ -77,6 +78,7 @@ router.post("/login", async (req, res) => {
         return res.json({
             authToken: authToken,
             email: user.email,
+            id: user.id,
             status: true
         });
     })
