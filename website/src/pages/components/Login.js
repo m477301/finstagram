@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../services/AuthContext";
 
 import "../../styles/SignUp.css";
+import { toast } from "react-toastify"
 
 import Validation from "../../services/Validation";
 
@@ -37,6 +38,7 @@ function Login(props) {
       });
       localStorage.setItem("AuthToken", response?.data?.authToken)
       navigate("/home");
+      toast.success("You have logged in")
     }
 
   }

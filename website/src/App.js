@@ -17,6 +17,9 @@ import Entry from "./pages/Entry";
 import Home from "./pages/Home";
 import UserProfile from "./pages/UserProfile";
 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 function App() {
 
   const [login, setLogin] = useState(false);
@@ -54,6 +57,7 @@ function App() {
   }
 
   return (
+    <>
     <AuthContext.Provider value={{login, setLogin}}>
       <Router>
         <Routes>
@@ -68,6 +72,8 @@ function App() {
         </Routes>
       </Router>
     </AuthContext.Provider>
+    <ToastContainer position="top-right"/>
+    </>
   );
 }
 

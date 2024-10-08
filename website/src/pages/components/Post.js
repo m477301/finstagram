@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from 'react'
 import { AuthContext } from '../../services/AuthContext'
 import "../../styles/Post.css"
 import axios from 'axios'
-
+import { toast } from "react-toastify"
 
 function Post(props) {
 
@@ -28,6 +28,8 @@ function Post(props) {
                 }
             }
         )
+
+        toast.success("You have Deleted Your Post")
 
     }
  
