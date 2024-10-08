@@ -33,13 +33,8 @@ function Home() {
     if(response?.data?.error) {
       console.log("Error", response.data.error)
     } else if(response?.data) {
-
-      console.log("Posts", response.data)
       setPosts(response.data)
     }
-
-    console.log(response.data)
-
 
   }
 

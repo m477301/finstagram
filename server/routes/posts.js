@@ -19,9 +19,30 @@ router.get("/", validateToken, async (req, res) => {
     }]
   })
 
-  console.log("AllPPP", allPosts)
-
   return res.json(allPosts)
+})
+
+router.get("/:username", validateToken, async (req, res) => {
+  const {username} = req.params;
+
+  let user = await users.findOne({
+    where: {
+      username: username,
+    }
+  })
+
+  if(!user) {
+    return res.json({ error: "User Does Not Exist!"})
+  }
+
+  let userPosts = await posts.findAll({
+    where: {
+      userId: user.id,
+      status: "active"
+    }
+  })
+
+  return res.json(userPosts)
 })
 
 router.post("/", validateToken, async (req, res) => {
@@ -40,8 +61,6 @@ router.post("/", validateToken, async (req, res) => {
 router.delete("/:id", validateToken, async (req, res) => {
 
   const {id} = req.params;
-
-  console.log("__________ID_________", id, Number(id))
 
   try {
     await posts.update(

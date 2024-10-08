@@ -8,8 +8,6 @@ function SignUp(props) {
 
     e.preventDefault();
 
-    console.log("E", e.target[0].value, e.target[1].value);
-
     let response = await axios.post(
       "http://localhost:5555/users", 
       {
@@ -17,8 +15,6 @@ function SignUp(props) {
         password: e.target[1].value
       }
     )
-
-    console.log(response.data);
   }
  
   return (

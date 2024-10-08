@@ -16,8 +16,6 @@ function Login(props) {
 
     e.preventDefault();
 
-    console.log("E", e.target[0].value, e.target[1].value);
-
     if(Validation.isEmail(e.target[0].value)) {
       console.log("EMAIL", e.target[0].value)
     }
@@ -33,6 +31,7 @@ function Login(props) {
       console.log("Error", response.data.error);
     } else if(response?.data?.status) {
       setLogin({
+        username: response?.data?.username,
         email: response?.data?.email,
         status: response?.data?.status,
       });

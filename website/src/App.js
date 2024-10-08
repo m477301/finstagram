@@ -15,6 +15,7 @@ import './styles/App.css';
 
 import Entry from "./pages/Entry";
 import Home from "./pages/Home";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
 
@@ -59,6 +60,9 @@ function App() {
           <Route path="/entry" element={<Entry />} />
           <Route path="/home" element={<PrivateRoute />} >
             <Route path="/home" element={<Home />} />
+          </Route>
+          <Route path="/user/:username" element={<PrivateRoute />} >
+            <Route path="/user/:username" element={<UserProfile />} />
           </Route>
           <Route path="*" element={ <Navigate to={login ? "/home" : "/entry"} />} />
         </Routes>

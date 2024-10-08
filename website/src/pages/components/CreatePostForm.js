@@ -5,7 +5,6 @@ import axios from 'axios'
 function CreatePostForm() {
     const createPost = async (e) => {
         e.preventDefault();
-        console.log(e.target[0].value, e.target[1].value)
 
         await axios.post("http://localhost:5555/posts",
             {
