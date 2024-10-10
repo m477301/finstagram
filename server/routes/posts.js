@@ -48,14 +48,14 @@ router.get("/:username", validateToken, async (req, res) => {
 router.post("/", validateToken, async (req, res) => {
     const {title, description} = req.body;
 
-    await posts.create({
+    let post = await posts.create({
       title: title,
       description: description,
       userId: req.user.id,
       status: "active" 
     })
-
-    return res.json({ message: "Post has been CREATED"})
+    
+    return res.json(post)
 })
 
 router.delete("/:id", validateToken, async (req, res) => {

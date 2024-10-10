@@ -28,7 +28,7 @@ function Post(props) {
                 }
             }
         )
-
+        props.deletePost(props?.post?.id)
         toast.success("You have Deleted Your Post")
 
     }
@@ -37,6 +37,7 @@ function Post(props) {
         <div className='Post'>
             <div>{props?.post?.title}</div>
             <div>{props?.post?.description}</div>
+            <div>{props?.post?.createdAt}</div>
             <div>{props?.username ? props?.username : props?.post?.user?.username}</div>
             {
                 login.username === username ?
