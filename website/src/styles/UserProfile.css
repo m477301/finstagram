@@ -1,0 +1,18 @@
+.UserProfile {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    padding: 5vh 0;
+}
+
+.UserStats {
+    background-color: #eeeeee;
+}
+
+.Username {
+    padding: 1vh 3vw;
+    border-radius: 5px;
+}

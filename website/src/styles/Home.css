@@ -1,0 +1,16 @@
+.HomePage {
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SubMenu {
+    
+}
+
+.Contents {
+    margin-top: 7vh;
+}

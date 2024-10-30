@@ -1,0 +1,10 @@
+.Post {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    border: 2px solid blue;
+    background-color: white;
+    color: black;
+    width: 50vw;
+    border-radius: 5px;
+}
